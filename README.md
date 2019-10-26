@@ -70,7 +70,7 @@ The `debounce` and `distinctUntilChanged` operators are used so that we avoid sp
 ```
 
 ## Composite Disposables
-In our Fragment's `onStop()`, we will clear all of our Rx subscriptions to prevent a memory leak using a `CompositeDisposible`. A `CompositeDisposible` allows us to keep track and clear multiple Rx subscriptions with a single call.
+In our Fragment's `onStop()`, we will clear all of our Rx subscriptions to prevent a memory leak using a `CompositeDisposable`. A `CompositeDisposable` allows us to keep track and clear multiple Rx subscriptions with a single call.
 
 ```
 @Override
