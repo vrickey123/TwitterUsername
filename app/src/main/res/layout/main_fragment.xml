@@ -5,14 +5,24 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".ui.main.MainFragment">
+    android:padding="8dp"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:cropToPadding="false"
+        android:maxWidth="50dp"
+        android:maxHeight="50dp"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/twitter_logo" />
 
     <EditText
         android:id="@+id/userinput"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Check username"
+        android:hint="Username"
         android:inputType="text"/>
 
     <TextView
