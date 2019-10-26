@@ -1,7 +1,7 @@
 # TwitterUsername
 MVVM and RxJava sample that checks if a username is available on Twitter.
 
-<img src="http://github.com/vrickey123/TwitterUsername/blob/master/docs/twitter_username.gif" width="360">
+<img src="https://github.com/vrickey123/TwitterUsername/blob/master/docs/twitter_username.gif" width="360">
 
 ## TwitterApi Network Request
 Using an RxJava Adapter, we can make an `Observable<TwitterResponse>` to check for available usernames.
