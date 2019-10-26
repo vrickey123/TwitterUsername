@@ -1,0 +1,40 @@
+{
+  "valid": false,
+  "reason": "taken",
+  "msg": "Username has already been taken",
+  "desc": "That username has been taken. Please choose another.",
+  "suggestions": [
+    {
+      "suggestion": "AndroiddevV3",
+      "sources": [
+        "username",
+        "full_name"
+      ],
+      "technique": "make_pairs"
+    },
+    {
+      "suggestion": "V3Androiddev",
+      "sources": [
+        "username",
+        "full_name"
+      ],
+      "technique": "make_pairs"
+    },
+    {
+      "suggestion": "androiddev_v3",
+      "sources": [
+        "username",
+        "full_name"
+      ],
+      "technique": "make_pairs"
+    },
+    {
+      "suggestion": "v3_androiddev",
+      "sources": [
+        "username",
+        "full_name"
+      ],
+      "technique": "make_pairs"
+    }
+  ]
+}

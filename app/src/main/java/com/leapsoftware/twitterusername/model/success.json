@@ -1,0 +1,31 @@
+{
+  "valid": true,
+  "reason": "available",
+  "msg": "Available!",
+  "desc": "Available!",
+  "suggestions": [
+    {
+      "suggestion": "androiddev861",
+      "sources": [
+        "username"
+      ],
+      "technique": "make_individuals"
+    },
+    {
+      "suggestion": "Androiddev861V3",
+      "sources": [
+        "username",
+        "full_name"
+      ],
+      "technique": "make_pairs"
+    },
+    {
+      "suggestion": "V3Androiddev861",
+      "sources": [
+        "username",
+        "full_name"
+      ],
+      "technique": "make_pairs"
+    }
+  ]
+}
