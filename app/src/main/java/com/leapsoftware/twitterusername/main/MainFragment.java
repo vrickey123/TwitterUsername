@@ -1,21 +1,20 @@
 package com.leapsoftware.twitterusername.main;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 import com.leapsoftware.twitterusername.R;
 import com.leapsoftware.twitterusername.model.TwitterResponse;
 import com.leapsoftware.twitterusername.networking.TwitterService;
@@ -30,8 +29,8 @@ import io.reactivex.schedulers.Schedulers;
 public class MainFragment extends Fragment {
     private static final String TAG = MainFragment.class.getSimpleName();
 
-    private EditText mUsernameEditText;
-    private TextView mStatusText;
+    private TextInputLayout mUsernameEditLayout;
+    private TextInputEditText mUsernameEditText;
 
     private MainViewModelFactory mMainViewModelFactory;
     private MainViewModel mViewModel;
@@ -57,8 +56,8 @@ public class MainFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mUsernameEditText = view.findViewById(R.id.userinput);
-        mStatusText = view.findViewById(R.id.status);
+        mUsernameEditLayout = view.findViewById(R.id.text_input_layout);
+        mUsernameEditText = view.findViewById(R.id.text_input_edit_text);
     }
 
     @Override
@@ -94,9 +93,9 @@ public class MainFragment extends Fragment {
                             @Override
                             public void accept(TwitterResponse twitterResponse) throws Exception {
                                 if (twitterResponse.valid) {
-                                    showSuccessMessage(getContext());
+                                    showSuccessMessage();
                                 } else {
-                                    showFailureMessage(getContext());
+                                    showErrorMessage();
                                 }
                             }
                         }));
@@ -110,13 +109,15 @@ public class MainFragment extends Fragment {
         mCompositeDisposable.clear();
     }
 
-    private void showSuccessMessage(Context context) {
-        mStatusText.setText("Username is available");
-        mStatusText.setBackgroundColor(ContextCompat.getColor(context, android.R.color.holo_green_light));
+    private void showSuccessMessage() {
+        mUsernameEditLayout.setHelperText("Username is available");
     }
 
-    private void showFailureMessage(Context context) {
-        mStatusText.setText("Username is not available");
-        mStatusText.setBackgroundColor(ContextCompat.getColor(context, android.R.color.holo_red_light));
+    private void showErrorMessage() {
+        if (TextUtils.isEmpty(mUsernameEditText.getText().toString())) {
+            mUsernameEditLayout.setError("Please enter a username");
+        } else {
+            mUsernameEditLayout.setError("Username is unavailable");
+        }
     }
 }
