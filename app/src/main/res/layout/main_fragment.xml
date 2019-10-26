@@ -5,20 +5,33 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".ui.main.MainFragment">
+    android:padding="8dp"
+    android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/userinput"
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Check username"
-        android:inputType="text"/>
+        android:adjustViewBounds="true"
+        android:cropToPadding="false"
+        android:maxWidth="50dp"
+        android:maxHeight="50dp"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/twitter_logo" />
 
-    <TextView
-        android:id="@+id/status"
-        android:layout_width="wrap_content"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_input_layout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Enter a username to check its status"/>
+        android:layout_marginTop="8dp"
+        app:hintEnabled="true"
+        app:errorEnabled="true"
+        android:hint="Check if a username is available">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/text_input_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
 
 </LinearLayout>
